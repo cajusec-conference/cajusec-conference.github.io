@@ -61,7 +61,7 @@
 					<li><a href="#schedule">Programação</a></li>
 					<li><a href="#ctf">Capture the Flag</a></li>
 					<li><a href="#apoio">Apoio</a></li>
-					<li><a href="#contact">Contato</a></li>					
+					<li><a href="#location">Localização</a></li>					
 				</ul>
 			</nav>
 			<!-- /Navigation -->
@@ -237,22 +237,22 @@
 	<!-- /Sponsors -->
 
 	<!-- Contact -->
-	<div id="contact" class="section">
+	<div id="location" class="section">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
 			<div class="row">
 				<!-- section title -->
 				<div class="section-title">
-					<h3 class="title"><span>Contato</span> </h3>
+					<h3 class="title"><span>Localização</span> </h3>
 				</div>
 				<!-- /section title -->
 
 				<!-- contact -->
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<div class="contact">
-						<h3>Email</h3>
-						<a href="#">netoeuler ARROBA tutanota PONTO com</a>
+						<h3>Senac Sergipe</h3>
+						<a href="#">Av. Ivo do Prado, 564 - Centro, Aracaju - SE, 49010-010</a>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -278,16 +278,15 @@
 				<!-- footer logo -->
 				<div class="col-md-4 col-md-push-4">
 					<div class="footer-brand">
-						
+						Contato:<p>netoeuler ARROBA tutanota PONTO com
 					</div>
 				</div>
-				<!-- /footer logo -->
+				<!-- /footer logo -->				
 
 				<!-- contact social -->
 				<div class="col-md-4 col-md-push-4">
 					<div class="contact-social">
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						
+						<a href="https://twitter.com/cajusec" target="_blank"><i class="fa fa-twitter"></i></a>
 					</div>
 				</div>
 				<!-- /contact social -->
@@ -313,8 +312,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.stellar.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	<script src="js/google-map.js"></script>
+	
+	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+	<script>
+		map = new OpenLayers.Map("map");
+		map.addLayer(new OpenLayers.Layer.OSM());       
+
+		// create layer switcher widget in top right corner of map.
+		var layer_switcher= new OpenLayers.Control.LayerSwitcher({});
+		map.addControl(layer_switcher);
+		//Set start centrepoint and zoom    
+		var lonLat = new OpenLayers.LonLat( -37.04749, -10.91896 )
+		      .transform(
+		        new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+		        map.getProjectionObject() // to Spherical Mercator Projection
+		      );
+		var zoom=17;
+
+		var markers = new OpenLayers.Layer.Markers( "Markers" );
+		map.addLayer(markers);    
+		markers.addMarker(new OpenLayers.Marker(lonLat));
+
+		map.setCenter (lonLat, zoom);
+	</script>
+
 	<script src="js/jquery.countTo.js"></script>
 	<script src="js/main.js"></script>
 
