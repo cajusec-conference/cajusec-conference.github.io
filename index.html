@@ -92,9 +92,10 @@
 							<h4 class="lead">
 								Evento de Segurança da Informação em Aracaju, Sergipe.
 							</h4>
-							<!--<h1 style="color:red">2024</h1>
-							<h4 style="color:yellow">13 de Julho</h4>
-							<a href="" target="_blank" class="main-btn">ADQUIRA SEU INGRESSO!</a>-->
+							<h1 style="color:red">2025</h1>
+							<h4 style="color:yellow">19 de Julho</h4>
+							<!--<a href="" target="_blank" class="main-btn">ADQUIRA SEU INGRESSO!</a>-->
+							<div id="countdown-proximoevento" style="color:white;font-size:x-large"></div>
 
 							<br><br><br><br>
 							<p><a href="edicoes_anteriores/index.html" style="color:white">Edições anteriores</a></p>
@@ -447,6 +448,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script type="text/javascript">
+	  $("#countdown-proximoevento")
+	  .countdown("2025/07/19 08:00:00", function(event) {
+	    $(this).text(
+	      event.strftime('%D dias %H:%M:%S')
+	    );
+	  });
+	</script>
 	
 	<script src="https://openlayers.org/api/2.13.1/OpenLayers.js"></script>
 	<script>
